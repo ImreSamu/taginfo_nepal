@@ -1,0 +1,131 @@
+// This is an example of a taginfo config file.
+// Copy it to the directory above and name it 'taginfo-config.json', then change your local settings.
+{
+    // You probably want to change all these.
+    "instance": {
+        // URL prefix for the site.
+        "url": "http://localhost:80",
+        // Used in the title of all HTML pages.
+        "name": "HOT OpenStreetMap Taginfo Nepal",
+        // Description of this taginfo instance. Will appear on the home page and about page.
+        "description": "This is a <b>HOT OSM NEPAL taginfo instance</b>",
+        // Additional description that will only appear on the about page.
+        "about": "<p>This site is maintained by Imre Samu </p> see more:  <a class='extlink' href='http://wiki.openstreetmap.org/wiki/2015_Nepal_earthquake'>osm wiki: 2015_Nepal_earthquake</a>",
+        // URL path to instance icon in the upper left.
+        "icon": "/img/logo/nepalflag.png",
+        // Contact name and email address.
+        "contact": "Imre Samu  :  pella.samu@gmail.com ",
+        // Geographical area this taginfo instance covers.
+        "area": "Nepal",
+        // Add CORS header Access-Control-Allow-Origin with the given value
+        // to all /api responses. Use "" to not set this header, disallowing
+        // external services to use your API from a browser. Set to "*" to
+        // allow anybody.
+        "access_control_allow_origin": "*"
+    },
+    // For the geodistribution map. See the wiki documentation about these settings.
+    "geodistribution": {
+        "left": 80.05,
+        "bottom": 26.34,
+        "right": 88.21,
+        "top": 30.45,
+        "width": 204,
+        "height": 103,
+        "scale_image": 2,
+        "scale_compare_image" : 1,
+        "background_image": "/img/mapbg/nepalbg2.png",
+        // optional attribution for base image, will show up below all maps
+        "image_attribution": ""
+    },
+    // "XAPI" and "JOSM" buttons on key/tag pages
+    "xapi": {
+        // XAPI/JOSM buttons are disabled if more than this many results are expected
+        "max_results": 1000,
+        // URL prefix for the XAPI/JOSM links on the key and tag pages.
+        "url_prefix": "http://overpass-api.de/api/xapi_meta?"
+    },
+    // "overpass turbo" button on key/tag pages
+    "turbo": {
+        // if there are more objects than this with a key/tag, the normal Overpass Turbo
+        // will be called, if less the Wizard will be used with autorun and autozoom
+        "max_auto": 3000,
+        "url_prefix": "http://overpass-turbo.eu/?",
+        // set this to "global" or "in <area>" where <area> is a country name or other region found by Nominatim
+        "wizard_area": " in Nepal"
+    },
+    // "Level0 Editor" button on key/tag pages
+    "level0": {
+        // disable Level0 Editor button if there are more than this many objects with a key/tag
+        "max_results": 50,
+        "overpass_url_prefix": "http://overpass.osm.rambler.ru/cgi/interpreter?",
+        "level0_url_prefix": "http://level0.osmz.ru/?"
+    },
+    "opensearch": {
+        // For the OpenSearchDescription. You have to change at least the shortname and the contact for your instance.
+        "shortname": "HOT OSM NEPAL Taginfo Instance",
+        "contact": "pella.samu@gmail.com",
+        "description": "Find metadata about  OpenStreetMap ( country=NEPAL) tags",
+        "tags": "nepal hot osm openstreetmap tag tags taginfo"
+    },
+    "sources": {
+        // These sources will be downloaded from http://taginfo.openstreetmap.org/download/
+        // Note that this will NOT work for the "db" source! Well, you can download it,
+        // but it will fail later, because the database is changed by the master.sql
+        // scripts.
+        "download": "languages projects wiki",
+        // These sources will be created from the actual sources.
+        "create": "db",
+        "db": {
+            // Path to binaries (like 'tagstats' and 'similarity'). Will replace 'tagstats' setting.
+            "bindir": "../../tagstats",
+            // Path to the 'tagstats' program (absolute path or relative to sources/db directory).
+            "tagstats": "../../tagstats/tagstats",
+            // The OSM planet file or extract where we read the OSM data from.
+            "planetfile": "/osm/planet/var/nepal.osm.pbf"
+        },
+        // If you change any of the following you have to run the update
+        // twice for it to take effect.
+        "master": {
+            // Minimum number of occurances of a tag to make it
+            // potentially "interesting", ie. create tag combination
+            // statistics for it.
+            "min_count_tags": 1,
+            // Tag combinations not appearing this often are not written to database.
+            "min_tag_combination_count": 1,
+            // Minimum number of tag occurances for creating a map
+            "min_count_for_map": 1,
+            // Minimum number of relations per type to make this
+            // relation type "interesting", ie. to make it show
+            // up as a relation type.
+            "min_count_relations_per_type": 1,
+            // Tokenizer for sqlite full-text search. Complex or custom
+            // tokenizers, e.g., icu and unicode61, may be more suitable for
+            // some locales. You may need newer sqlite3 or to recompile
+            // sqlite3 to use those tokenizers.
+            // See http://www.sqlite.org/fts3.html#tokenizer for detail.
+            "tokenizer": "simple"
+        }
+    },
+    // Settings for the web user interface
+    "user_interface": {
+        "key_page": {
+            "show_tab_similar": true
+        }
+    },
+    "logging": {
+        // directory for log files
+        "directory": "/osm/taginfo/var/log",
+        // SQL queries longer than this many seconds are logged
+        "min_duration": 0.1
+    },
+    // For compiling tagstats.
+    "tagstats": {
+        // Extra compilerflags, for instance to find Osmium.
+        "cxxflags": "-I../../../osmium/osmium/include",
+        // Node location store. For really large OSM files (whole planet or large continent)
+        // this should be "MmapAnon", otherwise "SparseTable".
+        "geodistribution": "SparseTable",
+        // C++ type used for geodistribution
+        "geodistribution_int": "uint16_t"
+    }
+}
