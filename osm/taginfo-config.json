@@ -14,7 +14,7 @@
         // URL path to instance icon in the upper left.
         "icon": "/img/logo/nepalflag.png",
         // Contact name and email address.
-        "contact": "Imre Samu  :  pella.samu@gmail.com ",
+        "contact": "Imre Samu  :  pella.samu (at-sign) @gmail.com ",
         // Geographical area this taginfo instance covers.
         "area": "Nepal",
         // Add CORS header Access-Control-Allow-Origin with the given value
@@ -63,7 +63,7 @@
     "opensearch": {
         // For the OpenSearchDescription. You have to change at least the shortname and the contact for your instance.
         "shortname": "HOT OSM NEPAL Taginfo Instance",
-        "contact": "pella.samu@gmail.com",
+        "contact": "pella.samu (at-sign) gmail.com",
         "description": "Find metadata about  OpenStreetMap ( country=NEPAL) tags",
         "tags": "nepal hot osm openstreetmap tag tags taginfo"
     },
