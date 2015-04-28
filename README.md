@@ -1,7 +1,12 @@
 
 
 #NEPAL taginfo  
-setup for brand new **Ubuntu 14.04** 
+setup for brand new **Ubuntu 14.04** and a **minimum 4Gb RAM**
+* Taginfo instance showing tagging statistics only for NEPAL. 
+* Input Data : Geofabrik 30min extract.  ( http://labs.geofabrik.de/nepal/ )
+* Setup created for DigitalOcean ( 4Gb RAM, 60Gb Disk, Ubuntu 14.04 )
+* Latest Taginfo source code :   https://github.com/joto/taginfo 
+  ( map and overpass-turbo link is working ;  and  min_count_tags = 1  )
 
 ##Install steps:
 * 1. copy all source files to  /osm
